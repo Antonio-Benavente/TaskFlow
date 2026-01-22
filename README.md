@@ -9,10 +9,9 @@ fluida y completamente responsive.
 
 ## Demo
 
-### Video de Presentación
+### Video de Demostración
 
-> Arrastra aquí tu archivo MP4 directamente sobre el README en GitHub
-> para que se suba automáticamente.
+https://github.com/user-attachments/assets/aaae8597-9fc0-49d1-ba17-a57723072ab2
 
 ### Demo en Vivo
 
