@@ -1,0 +1,128 @@
+.boardPage {
+  padding: 1.5rem;
+  height: calc(100vh - 70px);
+  overflow-x: auto;
+}
+
+.boardHeader {
+  margin-bottom: 1.5rem;
+}
+
+.boardHeader h1 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.boardHeader p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.columnsContainer {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  min-height: 500px;
+}
+
+/* Botón de agregar sección */
+.addSectionButton {
+  width: 100%;
+  padding: 1rem;
+  background: transparent;
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-width: 320px;
+}
+
+.addSectionButton:hover {
+  background: var(--bg);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Estilos para el DragOverlay de tareas */
+.taskCard {
+  background: var(--bg);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  border: 2px solid var(--primary);
+}
+
+.taskCardDraggable {
+  padding: 1rem;
+}
+
+.taskTitle {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Estilos para el DragOverlay de columnas */
+.columnOverlay {
+  background: var(--bg-tertiary);
+  border-radius: 12px;
+  padding: 1rem;
+  min-width: 320px;
+  max-width: 320px;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--primary);
+  opacity: 0.9;
+}
+
+.columnOverlay .columnHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.columnOverlay .columnHeader h3 {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.columnOverlay .taskCount {
+  background: var(--border);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.125rem 0.5rem;
+  border-radius: 12px;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .boardPage {
+    padding: 1rem;
+  }
+
+  .columnsContainer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .addSectionButton {
+    min-width: 100%;
+  }
+}

@@ -1,0 +1,239 @@
+/* Overlay del modal */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal principal */
+.modal {
+  width: min(500px, 95vw);
+  height: min(720px, 95vh);
+  background: var(--bg);
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideIn 0.25s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Header */
+.modalHeader {
+  position: relative;
+  padding: 1.5rem 2rem 1.25rem;
+  background: linear-gradient(135deg, var(--primary) 0%, #667eea 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.appIcon {
+  width: 72px;
+  height: 72px;
+  background: #fff;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  animation: iconBounce 0.6s ease;
+}
+
+@keyframes iconBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.appIcon svg {
+  color: var(--primary);
+}
+
+/* Close */
+.closeButton {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 34px;
+  height: 34px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+.closeButton:active {
+  transform: rotate(90deg) scale(0.95);
+}
+
+/* Body */
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 2rem 2.5rem 1.5rem;
+  gap: 0.5rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text);
+}
+
+.version {
+  margin: 0;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+}
+
+.description {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* Features */
+.featuresList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0.9rem;
+  background: var(--bg-secondary);
+  border-radius: 10px;
+}
+
+.featureIcon {
+  width: 34px;
+  height: 34px;
+  background: var(--primary-light);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.featureIcon svg {
+  color: var(--primary);
+}
+
+.featureItem span {
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.tech {
+  margin: 0 0 0.4rem;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.copyright {
+  margin: 0;
+  color: var(--text-tertiary);
+  font-size: 0.75rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modal {
+    width: 92vw;
+    height: 90vh;
+    border-radius: 16px;
+  }
+
+  .modalHeader {
+    padding: 1.25rem 1.25rem 1rem;
+  }
+
+  .appIcon {
+    width: 60px;
+    height: 60px;
+    border-radius: 14px;
+  }
+
+  .modalBody {
+    padding: 1.25rem 1.25rem 1rem;
+    row-gap: 0.75rem;
+  }
+
+  .featuresList {
+    grid-template-columns: 1fr;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+}
+
+/* Dark mode */
+[data-theme="dark"] .appIcon {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .featureIcon {
+  background: rgba(59, 130, 246, 0.15);
+}

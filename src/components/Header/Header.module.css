@@ -1,0 +1,140 @@
+.header {
+  background: var(--bg-secondary);
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  border-bottom: 1px solid var(--border);
+  transition: background var(--transition-slow);
+}
+
+.containerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary), #667eea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.separator {
+  color: var(--text-tertiary);
+  font-size: 1.25rem;
+  user-select: none;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.breadcrumb a,
+.breadcrumb span {
+  position: relative;
+  text-decoration: none;
+  color: var(--text-secondary);
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  transition: all var(--transition-normal);
+}
+
+/* Línea inferior en hover */
+.breadcrumb a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0.5rem;
+  right: 0.5rem;
+  height: 2px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transition: transform var(--transition-normal);
+}
+
+.breadcrumb a:hover {
+  color: var(--text);
+  background: transparent;
+}
+
+.breadcrumb a:hover::after {
+  transform: scaleX(1);
+}
+
+.breadcrumb span {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Línea inferior para el span activo */
+.breadcrumb span::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0.5rem;
+  right: 0.5rem;
+  height: 2px;
+  background: var(--primary);
+}
+
+.containerRight {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.theme {
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-normal);
+}
+
+.theme:hover {
+  background: var(--bg-tertiary);
+  color: var(--text);
+}
+
+.theme:active {
+  transform: scale(0.95);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .header {
+    padding: 0 1rem;
+  }
+
+  .logo h2 {
+    display: none;
+  }
+
+  .separator {
+    display: none;
+  }
+
+  .breadcrumb {
+    font-size: 0.875rem;
+  }
+}

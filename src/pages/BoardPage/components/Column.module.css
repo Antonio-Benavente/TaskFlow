@@ -1,0 +1,192 @@
+/* Columnas */
+.column {
+  background: var(--bg-tertiary);
+  border-radius: 12px;
+  padding: 1rem;
+  min-width: 320px;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 200px);
+  transition: background var(--transition-normal);
+}
+
+.columnHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  user-select: none;
+}
+
+.columnHeader:active {
+  cursor: pointer;
+}
+
+.columnTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dragHandle {
+  color: var(--text-tertiary);
+  opacity: 0.5;
+  transition: opacity var(--transition-normal);
+}
+
+.columnHeader:hover .dragHandle {
+  opacity: 1;
+}
+
+.columnTitle h3 {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.taskCount {
+  background: var(--border);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.125rem 0.5rem;
+  border-radius: 12px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.columnMenuContainer {
+  position: relative;
+}
+
+.columnMenu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  transition: color var(--transition-normal);
+}
+
+.columnMenu:hover {
+  color: var(--text);
+}
+
+.columnMenuDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow-md);
+  padding: 0.5rem;
+  min-width: 180px;
+  z-index: 100;
+  animation: slideIn var(--transition-fast);
+}
+
+.columnMenuDropdown button {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  text-align: left;
+  cursor: pointer;
+  transition: background var(--transition-normal);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text);
+}
+
+.columnMenuDropdown button:hover {
+  background: var(--bg-secondary);
+}
+
+.columnMenuDropdown button.deleteOption {
+  color: var(--danger);
+}
+
+.columnMenuDropdown button.deleteOption:hover {
+  background: var(--danger-bg);
+}
+
+/* Lista de tareas */
+.tasksList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow-y: auto;
+  flex: 1;
+  padding: 0.25rem;
+  min-height: 100px;
+}
+
+/* Columna vacía */
+.emptyColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  color: var(--text-tertiary);
+  text-align: center;
+  min-height: 200px;
+}
+
+.emptyColumn svg {
+  margin-bottom: 0.75rem;
+  opacity: 0.5;
+}
+
+.emptyColumn p {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+/* Botón de agregar tarea */
+.addTaskButton {
+  width: 100%;
+  padding: 0.75rem;
+  background: transparent;
+  border: 2px dashed var(--border);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.addTaskButton:hover {
+  background: var(--bg);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .column {
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 60vh;
+  }
+}
