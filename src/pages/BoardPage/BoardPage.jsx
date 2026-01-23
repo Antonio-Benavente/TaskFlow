@@ -6,6 +6,9 @@ import {
   DragOverlay,
   closestCorners,
   PointerSensor,
+  TouchSensor,
+  MouseSensor,
+  KeyboardSensor,
   useSensor,
   useSensors,
 } from "@dnd-kit/core";
@@ -28,13 +31,18 @@ export function BoardPage() {
   const [editingSection, setEditingSection] = useState(null);
 
   const sensors = useSensors(
-    useSensor(PointerSensor, {
-      activationConstraint: { 
-        distance: 8,
-        delay: 100,
-        tolerance: 5
+    useSensor(MouseSensor, {
+      activationConstraint: {
+        distance: 10,
       },
-    })
+    }),
+    useSensor(TouchSensor, {
+      activationConstraint: {
+        delay: 250,
+        tolerance: 5,
+      },
+    }),
+    useSensor(KeyboardSensor)
   );
 
   const board = useMemo(() => 

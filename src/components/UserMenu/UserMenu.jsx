@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import styles from "./UserMenu.module.css"
 import { AboutModal } from "../AboutModal/AboutModal.jsx"
 
 export function UserMenu() {
+  const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const [showAboutModal, setShowAboutModal] = useState(false)
   const [showDeleteModal, setShowDeleteModal] = useState(false)
@@ -60,6 +62,7 @@ export function UserMenu() {
 
   const confirmClearData = () => {
     localStorage.clear();
+    navigate('/boards');
     window.location.reload();
   };
 
